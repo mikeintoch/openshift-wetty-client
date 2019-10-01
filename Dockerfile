@@ -29,6 +29,8 @@ RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''
 #ADD sshd_config /etc/ssh/sshd_config 
 RUN systemctl enable sshd.service
 
+RUN yum -y install java-1.8.0-openjdk-devel maven
+
 RUN curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
 RUN yum -y install nodejs make gcc*
 RUN npm install npm@latest -g
